@@ -1,0 +1,16 @@
+<div>
+    <h1>Librería</h1>
+
+    <!-- <ul>
+        <li *ngFor="let comic in comics">
+            {{comic.nombre}}
+        </li>
+    </ul> -->
+    <div *ngFor="let comic of comics">
+
+        <app-comic [comic]="comic"
+        (seleccionarFavorito)="seleccionarFavorito($event)"
+        ></app-comic>
+
+    </div>
+</div>

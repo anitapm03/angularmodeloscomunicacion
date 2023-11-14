@@ -6,12 +6,14 @@ import { PadredeportesComponent } from "./components/padredeportes/padredeportes
 
 import { Routes, RouterModule } from "@angular/router";
 import { ModuleWithProviders } from "@angular/core";
+import { LibreriaComponent } from "./components/libreria/libreria.component";
 
 const appRoutes: Routes = [
     { path: "", component: ListaproductosComponent },
     { path: "detalle/:nombre/:precio/:imagen", component: DetalleproductoComponent },
     { path: "coches", component: PadrecochesComponent},
-    { path: "deportes", component: PadredeportesComponent}
+    { path: "deportes", component: PadredeportesComponent},
+    { path: "libreria", component: LibreriaComponent}
     //{ path: "detalle/:producto", component: DetalleproductoComponent }
 ]   
 
