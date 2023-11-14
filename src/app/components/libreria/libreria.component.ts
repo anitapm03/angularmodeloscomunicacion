@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { Comic } from 'src/app/models/Comic';
 
 @Component({
@@ -10,7 +10,15 @@ export class LibreriaComponent {
   public comics: Array<Comic>;
   public mensaje!: string;
 
+  @ViewChild("cajanombre") cajaNombreRef: ElementRef;
+  @ViewChild("cajaimagen") cajaImagenRef: ElementRef;
+  @ViewChild("cajadesc") cajaDescRef: ElementRef;
+
   constructor(){
+    this.cajaNombreRef = new ElementRef("");
+    this.cajaImagenRef = new ElementRef("");
+    this.cajaDescRef = new ElementRef("");
+
     this.comics = [
       new Comic(
         "Spiderman",
@@ -45,4 +53,24 @@ export class LibreriaComponent {
     this.mensaje = "Has seleccionado como favorito: " + event;
   }
 
+  eliminarComic( event: any): void{
+    //let comic = event;
+    this.comics = this.comics.filter(comic => comic != event);
+  }
+
+  nuevoComic(): void{
+
+    var nombre = this.cajaNombreRef.nativeElement.value;
+    var imagen = this.cajaImagenRef.nativeElement.value;
+    var descripcion = this.cajaDescRef.nativeElement.value;
+
+    this.comics.push(new Comic(nombre, imagen, descripcion) );
+
+  }
+
+  modificarComic( event:any ): void{
+    event.nombre = this.cajaNombreRef.nativeElement.value;
+    event.imagen = this.cajaImagenRef.nativeElement.value;
+    event.descripcion = this.cajaDescRef.nativeElement.value;
+  }
 }

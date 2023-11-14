@@ -13,8 +13,22 @@ export class ComicComponent {
   @Output() seleccionarFavorito: EventEmitter<any> =
     new EventEmitter();
 
+  @Output() eliminarComic: EventEmitter<any> =
+    new EventEmitter();
+
+  @Output() modificarComic: EventEmitter<any> =
+    new EventEmitter();
+
   seleccionarFavoritoHijo(): void{
-    this.seleccionarFavorito.emit( this.comic.nombre);
+    this.seleccionarFavorito.emit( this.comic.nombre );
+  }
+
+  eliminarComicHijo(): void{
+    this.eliminarComic.emit( this.comic );
+  }
+
+  modificarComicHijo(): void{
+    this.modificarComic.emit( this.comic );
   }
 
 }
