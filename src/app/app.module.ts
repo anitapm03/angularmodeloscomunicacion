@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { routing, appRoutingProvider } from './app.routing';
+import { ServiceComics } from './services/service.comics';
 
 import { AppComponent } from './app.component';
 import { ListaproductosComponent } from './components/listaproductos/listaproductos.component';
@@ -14,6 +15,7 @@ import { PadredeportesComponent } from './components/padredeportes/padredeportes
 import { HijodeporteComponent } from './components/hijodeporte/hijodeporte.component';
 import { LibreriaComponent } from './components/libreria/libreria.component';
 import { ComicComponent } from './components/comic/comic.component';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +33,7 @@ import { ComicComponent } from './components/comic/comic.component';
   imports: [
     BrowserModule, routing, FormsModule
   ],
-  providers: [appRoutingProvider],
+  providers: [appRoutingProvider, ServiceComics],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
